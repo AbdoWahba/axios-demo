@@ -4,7 +4,7 @@ function generateToDoData() {
   var todo = [];
 
   for (let id = 1; id < 50; id++) {
-    var userid = Faker.random.number();
+    var userid = id % 10;
     var completed = Faker.random.boolean();
     var title = Faker.hacker.phrase();
 
