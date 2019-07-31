@@ -81,3 +81,16 @@ document.getElementById("formSub").addEventListener("submit", e => {
         });
     });
 });
+
+function clearList1() {
+  var getResult = document.getElementById("getresult1");
+  getResult.innerHTML = "";
+}
+function clearList2() {
+  var getResult = document.getElementById("getresult2");
+  getResult.innerHTML = "";
+}
+function clearList3() {
+  var getResult = document.getElementById("getresult3");
+  getResult.innerHTML = "";
+}
