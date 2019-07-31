@@ -49,3 +49,35 @@ function performGetRequest2() {
         });
     });
 }
+
+document.getElementById("formSub").addEventListener("submit", e => {
+  e.preventDefault();
+  var getResult = document.getElementById("getresult3");
+  getResult.innerHTML = "";
+
+  axios
+    .post("http://localhost:3000/todos/", {
+      id: document.getElementById("todoTitle").value
+    })
+    .then(function(responce) {
+      console.log(responce);
+      getResult.innerHTML =
+        "<pre>" + JSON.stringify(responce.data, null, "\t") + "</pre>";
+    })
+    .catch(function(err) {
+      axios
+        .post("https://jsonplaceholder.typicode.com/todos", {
+          id: document.getElementById("todoTitle").value
+        })
+        .then(function(response) {
+          console.log(response);
+          getResult.innerHTML =
+            "<pre>" + JSON.stringify(response.data, null, "\t") + "</pre>";
+          console.log(JSON.stringify(response.data, null, "\t"));
+        })
+        .catch(function(err) {
+          getResult.innerHTML =
+            "<pre>" + JSON.stringify(err, null, "\t") + "</pre>";
+        });
+    });
+});
